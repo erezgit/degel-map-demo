@@ -5,6 +5,7 @@ import { WelcomePage } from "@/pages/WelcomePage"
 import { SignupPage } from "@/pages/SignupPage"
 import { SharePage } from "@/pages/SharePage"
 import { StatusPage } from "@/pages/StatusPage"
+import { MapExplorerPage } from "@/pages/MapExplorerPage"
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/share" element={<SharePage />} />
         <Route path="/status" element={<StatusPage />} />
+        <Route path="/map-explorer" element={<MapExplorerPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </HashRouter>

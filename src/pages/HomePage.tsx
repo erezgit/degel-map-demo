@@ -59,6 +59,15 @@ export function HomePage() {
               כניסה
               <ArrowLeft className="size-5 transition-transform group-hover:-translate-x-1" />
             </Button>
+            <Button
+              size="xl"
+              variant="outline"
+              onClick={() => navigate("/map-explorer")}
+              className="group min-w-[200px]"
+            >
+              חקור את המפה
+              <ArrowLeft className="size-5 transition-transform group-hover:-translate-x-1" />
+            </Button>
             <div className="flex flex-col gap-1">
               <span className="text-sm font-semibold text-[#1B2D52]">
                 ההצטרפות בהזמנה בלבד
