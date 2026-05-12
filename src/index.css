@@ -100,3 +100,96 @@
 :focus:not(:focus-visible) {
   outline: none;
 }
+
+/* ─── Leaflet brand overrides ─────────────────────────────────────────── */
+
+/* The map control buttons should match the brand surface */
+.leaflet-control-zoom a {
+  background: #FFFFFF;
+  color: #1B2D52;
+  border-color: #E5E7EB;
+}
+.leaflet-control-zoom a:hover {
+  background: #F4F5F7;
+  color: #0F1B36;
+}
+
+/* Attribution — quieter than the Leaflet default */
+.leaflet-control-attribution {
+  background: rgba(255, 255, 255, 0.7) !important;
+  color: #6B7280 !important;
+  font-size: 10px !important;
+  backdrop-filter: blur(6px);
+}
+.leaflet-control-attribution a {
+  color: #3B82C8 !important;
+}
+
+/* Hover/touch tooltip on individual supporter dots */
+.leaflet-tooltip.degel-leaflet-tip {
+  background: #1B2D52;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(15, 27, 54, 0.18);
+}
+.leaflet-tooltip.degel-leaflet-tip::before {
+  border-top-color: #1B2D52;
+}
+
+/* Cluster bubble — navy fill, white count, brand-aligned tiers */
+.degel-cluster-wrap {
+  background: transparent !important;
+  border: none !important;
+}
+.degel-cluster {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  background: #1B2D52;
+  color: #FFFFFF;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  box-shadow:
+    0 0 0 4px rgba(27, 45, 82, 0.18),
+    0 6px 16px rgba(15, 27, 54, 0.25);
+  cursor: pointer;
+  transition: transform 0.18s ease-out, box-shadow 0.18s ease-out;
+  user-select: none;
+}
+.degel-cluster:hover {
+  transform: scale(1.06);
+  box-shadow:
+    0 0 0 6px rgba(59, 130, 200, 0.25),
+    0 8px 22px rgba(15, 27, 54, 0.35);
+}
+.degel-cluster-num {
+  font-size: 14px;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+.degel-cluster-md .degel-cluster-num {
+  font-size: 16px;
+}
+.degel-cluster-lg .degel-cluster-num {
+  font-size: 19px;
+}
+.degel-cluster-label {
+  display: none;
+  font-size: 8px;
+  font-weight: 500;
+  opacity: 0.85;
+  margin-top: 1px;
+  letter-spacing: 0.02em;
+}
+.degel-cluster-md .degel-cluster-label,
+.degel-cluster-lg .degel-cluster-label {
+  display: block;
+}
+

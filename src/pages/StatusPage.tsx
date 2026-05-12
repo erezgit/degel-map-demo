@@ -9,7 +9,7 @@ import { Separator } from "@/components/ui/separator"
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { PageShell } from "@/components/brand/PageShell"
 import { StepIndicator } from "@/components/brand/StepIndicator"
-import { IsraelMap, type MapVariant } from "@/components/brand/IsraelMap"
+import { IsraelMap, type TileVariant } from "@/components/brand/IsraelMap"
 import { Check, Clock, RotateCcw, TrendingUp, Users, MapPin } from "lucide-react"
 
 const CURRENT = 12847
@@ -40,17 +40,17 @@ const INVITEES = [
   },
 ]
 
-const VARIANT_LABELS: Array<{ value: MapVariant; label: string }> = [
-  { value: "simple-maps", label: "SVG פשוט" },
-  { value: "leaflet", label: "אריחים בהירים" },
-  { value: "maplibre", label: "MapLibre וקטור" },
-  { value: "visx", label: "visx" },
-  { value: "globe", label: "גלובוס תלת-ממדי" },
+const VARIANT_LABELS: Array<{ value: TileVariant; label: string }> = [
+  { value: "positron", label: "Positron · בהיר נקי" },
+  { value: "voyager", label: "Voyager · קרם רך" },
+  { value: "alidade", label: "Alidade · עיצובית" },
+  { value: "toner", label: "Toner Lite · שחור-לבן" },
+  { value: "esri", label: "Esri Light Gray · אפור יוקרתי" },
 ]
 
 export function StatusPage() {
   const navigate = useNavigate()
-  const [variant, setVariant] = useState<MapVariant>("simple-maps")
+  const [variant, setVariant] = useState<TileVariant>("positron")
 
   return (
     <PageShell bgVariant="subtle">
@@ -93,7 +93,7 @@ export function StatusPage() {
                     </div>
                     <Tabs
                       value={variant}
-                      onValueChange={(v) => setVariant(v as MapVariant)}
+                      onValueChange={(v) => setVariant(v as TileVariant)}
                     >
                       <TabsList className="h-8">
                         {VARIANT_LABELS.map((v) => (
