@@ -1,4 +1,3 @@
-import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -6,10 +5,9 @@ import { Progress } from "@/components/ui/progress"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { PageShell } from "@/components/brand/PageShell"
 import { StepIndicator } from "@/components/brand/StepIndicator"
-import { IsraelMap, type TileVariant } from "@/components/brand/IsraelMap"
+import { IsraelMap } from "@/components/brand/IsraelMap"
 import { Check, Clock, RotateCcw, TrendingUp, Users, MapPin } from "lucide-react"
 
 const CURRENT = 12847
@@ -40,17 +38,8 @@ const INVITEES = [
   },
 ]
 
-const VARIANT_LABELS: Array<{ value: TileVariant; label: string }> = [
-  { value: "positron", label: "Positron · בהיר נקי" },
-  { value: "voyager", label: "Voyager · קרם רך" },
-  { value: "alidade", label: "Alidade · עיצובית" },
-  { value: "toner", label: "Toner Lite · שחור-לבן" },
-  { value: "esri", label: "Esri Light Gray · אפור יוקרתי" },
-]
-
 export function StatusPage() {
   const navigate = useNavigate()
-  const [variant, setVariant] = useState<TileVariant>("positron")
 
   return (
     <PageShell bgVariant="subtle">
@@ -81,7 +70,6 @@ export function StatusPage() {
             <div className="lg:col-span-5 min-h-0 flex flex-col">
               <Card className="flex-1 overflow-hidden flex flex-col">
                 <CardContent className="p-4 lg:p-5 flex flex-col h-full min-h-0">
-                  {/* Variant tabs */}
                   <div className="flex items-center justify-between mb-2 gap-3 flex-wrap">
                     <div>
                       <div className="text-sm font-semibold text-[#1B2D52]">
@@ -91,26 +79,10 @@ export function StatusPage() {
                         כל נקודה — תומכ/ה שהצטרף/ה לתנועה
                       </p>
                     </div>
-                    <Tabs
-                      value={variant}
-                      onValueChange={(v) => setVariant(v as TileVariant)}
-                    >
-                      <TabsList className="h-8">
-                        {VARIANT_LABELS.map((v) => (
-                          <TabsTrigger
-                            key={v.value}
-                            value={v.value}
-                            className="text-[11px] px-2 py-0.5 h-7"
-                          >
-                            {v.label}
-                          </TabsTrigger>
-                        ))}
-                      </TabsList>
-                    </Tabs>
                   </div>
 
                   <div className="flex-1 min-h-0 rounded-xl overflow-hidden bg-white ring-1 ring-[#E5E7EB]">
-                    <IsraelMap variant={variant} />
+                    <IsraelMap />
                   </div>
 
                   {/* Legend */}
